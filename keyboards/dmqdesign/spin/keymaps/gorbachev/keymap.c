@@ -8,9 +8,13 @@ enum layers {
     _MACRO
 };
 enum custom_keycodes {
-    HELLO_WORLD = SAFE_RANGE,
+    HELLO = SAFE_HELLO,
     LUL = SAFE_LUL,
-    MUCHATECLA = SAFE_MUCHATECLA
+    MUCHATECLA = SAFE_MUCHATECLA,
+    CRY = SAFE_CRY,
+    FACEPALM = SAFE_FACEPALM,
+    OMG = SAFE_OMG,
+    HAHASWEAT = SAFE_HAHASWEAT
 };
 //The below layers are intentionally empty in order to give a good starting point for how to configure multiple layers.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
