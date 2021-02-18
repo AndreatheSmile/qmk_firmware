@@ -15,10 +15,10 @@ enum custom_keycodes {
 //The below layers are intentionally empty in order to give a good starting point for how to configure multiple layers.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUMPAD] = LAYOUT(/* Base */
-                KC_KP_7, KC_KP_8, KC_KP_9, TO(_NUMPAD),
-                KC_KP_4, KC_KP_5, KC_KP_6, TO(_RGB),
-                KC_KP_1, KC_KP_2, KC_KP_3, TO(_MACRO),
-                KC_KP_0, KC_KP_DOT, KC_KP_ENTER
+                KC_7, KC_8, KC_9, TO(_NUMPAD),
+                KC_4, KC_K5, KC_6, TO(_RGB),
+                KC_1, KC_2, KC_3, TO(_MACRO),
+                KC_0, KC_DOT, KC_ENTER
                 ),
     [_RGB] = LAYOUT(/* Base: First key reset SPIN */
                 RESET, KC_NO, KC_NO, KC_TRNS,
@@ -28,23 +28,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 ),
 
     [_MACRO] = LAYOUT(/* Base */
-                LUL, MUCHATECLA, KC_NO, KC_TRNS,
-                KC_F19, KC_F20, KC_F21, KC_TRNS,
-                KC_F16, KC_F17, KC_F18, KC_TRNS,
+                HELLO, LUL, CRY, KC_TRNS,
+                FACEPALM, OMG, MUCHATECLA, KC_TRNS,
+                HAHASWEAT, KC_F17, KC_F18, KC_TRNS,
                 KC_F13, KC_F14, KC_F15
                 )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case HELLO:
+            if (record->event.pressed) {
+                SEND_STRING("nik005Yee ");
+            }
+            break;
         case LUL:
             if (record->event.pressed) {
-                SEND_STRING("LUL ");
+                SEND_STRING("nik005LUL ");
+            }
+            break;
+        case CRY:
+            if (record->event.pressed) {
+                SEND_STRING("nik005Cry ");
+            }
+            break;
+        case FACEPALM:
+            if (record->event.pressed) {
+                SEND_STRING("nik005Palm ");
+            }
+            break;
+        case OMG:
+            if (record->event.pressed) {
+                SEND_STRING("nik005OMG ");
             }
             break;
         case MUCHATECLA:
             if (record->event.pressed) {
-                SEND_STRING("https://shop.kstanchev.com");
+                SEND_STRING("uryftwMUCHA uryftwTECLA ");
+            }
+            break;
+        case HAHASWEAT:
+            if (record->event.pressed) {
+                SEND_STRING("HahaSweat ");
             }
             break;
     }
@@ -230,17 +255,17 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 void oled_task_user(void) {
     // Host Keyboard Layer Status
     // Translate to desired language
-    oled_write_P(PSTR("Layer: "), false);
+    oled_write_P(PSTR("Capa: "), false);
 
     switch (get_highest_layer(layer_state)) {
         case _NUMPAD:
-            oled_write_P(PSTR("Numpad\n"), false);
+            oled_write_P(PSTR("Numericos\n"), false);
             break;
         case _RGB:
-            oled_write_P(PSTR("RGB\n"), false);
+            oled_write_P(PSTR("Lucesitas\n"), false);
             break;
         case _MACRO:
-            oled_write_P(PSTR("Macro\n"), false);
+            oled_write_P(PSTR("Cositas\n"), false);
             break;
         default:
             // Or use the write_ln shortcut over adding '\n' to the end of your string
@@ -250,10 +275,10 @@ void oled_task_user(void) {
     static char rgb_mode_name[30];
     rgblight_get_mode_name(rgblight_get_mode(), sizeof(rgb_mode_name), rgb_mode_name);
 
-    oled_write_P(PSTR("Mode: "), false);
+    oled_write_P(PSTR("Modo: "), false);
     oled_write_ln(rgb_mode_name, false);
 
-    oled_write_ln("YOUR NAME HERE", false);
+    oled_write_ln("PoisonIvy13", false);
 
 }
 #endif
