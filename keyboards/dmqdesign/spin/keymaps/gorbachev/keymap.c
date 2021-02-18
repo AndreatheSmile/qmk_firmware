@@ -8,6 +8,7 @@ enum layers {
     _MACRO
 };
 enum custom_keycodes {
+    HELLO_WORD = SAFE_RANGE,
     HELLO = SAFE_HELLO,
     LUL = SAFE_LUL,
     MUCHATECLA = SAFE_MUCHATECLA,
@@ -20,7 +21,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUMPAD] = LAYOUT(/* Base */
                 KC_7, KC_8, KC_9, TO(_NUMPAD),
-                KC_4, KC_K5, KC_6, TO(_RGB),
+                KC_4, KC_5, KC_6, TO(_RGB),
                 KC_1, KC_2, KC_3, TO(_MACRO),
                 KC_0, KC_DOT, KC_ENTER
                 ),
