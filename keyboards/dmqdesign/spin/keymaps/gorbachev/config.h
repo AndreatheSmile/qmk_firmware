@@ -16,8 +16,12 @@
 
 #pragma once
 
-#define RGBLIGHT_ANIMATIONS 
+#define RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_HUE_STEP 8
+
+//Prueba de añadir teclas combinadas a la spin
+#define COMBO_COUNT 1
+#define COMBO_TERM 300
 
 // Use one or the other, determines the orientation of
 // the OLED display
